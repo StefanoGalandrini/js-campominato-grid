@@ -74,8 +74,7 @@ main .grid {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	width: 640px;
-	height: 640px;
+	opacity: 0;
 	border: 4px solid rgb(100, 0, 170);
 }
 
