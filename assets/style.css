@@ -63,7 +63,39 @@ main {
 	width: 100%;
 	height: 80vh;
 	background-color: rgb(181, 149, 202);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+main .grid {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 640px;
+	height: 640px;
+	border: 4px solid rgb(100, 0, 170);
+}
+
+main .cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgb(100, 0, 170);
+	cursor: pointer;
+}
+
+main .selected {
+	background-color: lightblue;
+}
+
+
+
+
+
+
 
 footer {
 	width: 100%;

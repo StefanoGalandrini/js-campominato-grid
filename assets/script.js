@@ -29,27 +29,51 @@ const difficultySelect = document.querySelector("#difficulty");
 
 // add event listener to play button
 // all code will be inside that
-playBtn.addEventListener('click',
-	function () {
-		grid.innerHTML = '';
-		let gridSize;
-		let cellCount;
+playBtn.addEventListener("click", function () {
+	grid.innerHTML = "";
+	let gridSize;
+	let cellCount;
 
-		// define grid dimension based on selection
-		switch (difficultySelect.value) {
-			case '1':
-				gridSize = 10;
-				cellCount = 100;
-				break;
-			case '2':
-				gridSize = 9;
-				cellCount = 81;
-				break;
-			case '3':
-				gridSize = 7;
-				cellCount = 49;
-				break;
-			default:
-				gridSize = 10;
-				cellCount = 100;
-		}
+	// define grid dimension based on selection
+	switch (difficultySelect.value) {
+		case "12":
+			gridSize = 10;
+			cellCount = 100;
+			break;
+		case "2":
+			gridSize = 9;
+			cellCount = 81;
+			break;
+		case "3":
+			gridSize = 7;
+			cellCount = 49;
+			break;
+		default:
+			gridSize = 10;
+			cellCount = 100;
+	}
+
+	// build grid creating html elements
+	for (let i = 1; i <= cellCount; i++) {
+		const cell = document.createElement("div");
+		const dimCell = cellDimension(cellCount);
+		console.log(cellCount, dimCell);
+		cell.classList.add("cell");
+		cell.style.width = `${dimCell}px`;
+		cell.style.height = `${dimCell}px`;
+		cell.innerHTML = i;
+
+		cell.addEventListener("click", function () {
+			cell.classList.toggle("selected");
+			console.log(`Hai cliccato sulla casella ${i}`);
+		});
+
+		grid.appendChild(cell);
+	}
+});
+
+function cellDimension(dim) {
+	const row = Math.sqrt(dim);
+	const dimCell = (640 - 2 * 4) / row;
+	return dimCell;
+}
